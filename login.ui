@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>581</width>
-    <height>396</height>
+    <width>501</width>
+    <height>232</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -43,8 +43,8 @@ QPushButton#Login_Button:pressed{
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>140</y>
+      <x>0</x>
+      <y>0</y>
       <width>500</width>
       <height>230</height>
      </rect>
@@ -66,8 +66,8 @@ background-color: rgb(115, 192, 136);</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>160</y>
+      <x>290</x>
+      <y>20</y>
       <width>191</width>
       <height>191</height>
      </rect>
@@ -82,8 +82,8 @@ background-color: rgb(115, 192, 136);</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>160</y>
+      <x>90</x>
+      <y>20</y>
       <width>90</width>
       <height>31</height>
      </rect>
@@ -103,8 +103,8 @@ background-color: rgb(115, 192, 136);</string>
    <widget class="QLineEdit" name="student_ID">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>210</y>
+      <x>30</x>
+      <y>70</y>
       <width>211</width>
       <height>41</height>
      </rect>
@@ -123,8 +123,8 @@ padding-bottom:7px;</string>
    <widget class="QLineEdit" name="student_Pass">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>260</y>
+      <x>30</x>
+      <y>120</y>
       <width>211</width>
       <height>41</height>
      </rect>
@@ -146,8 +146,8 @@ padding-bottom:7px;</string>
    <widget class="QPushButton" name="Login_Button">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>320</y>
+      <x>50</x>
+      <y>180</y>
       <width>161</width>
       <height>28</height>
      </rect>
@@ -165,7 +165,6 @@ padding-bottom:7px;</string>
     </property>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
   <include location="Res_01/RES_01.qrc"/>

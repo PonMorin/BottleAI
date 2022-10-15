@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>582</width>
-    <height>370</height>
+    <width>492</width>
+    <height>233</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -58,13 +58,36 @@ QPushButton#ViewPoint_Button:pressed{
 	border-left:1px solid rgb(128,128,128);
 	border-right:1px solid rgb(128,128,128);
 	border-top:5px solid rgb(128,128,128);
-}</string>
+}
+QPushButton#ready_button{
+	background-color: rgb(153, 184, 152);
+	
+	
+	border-left:1px solid rgb(255,76,100);
+	border-right:1px solid rgb(255,76,100);
+	border-bottom:5px solid rgb(255,76,100);
+}
+QPushButton#ready_button:hover{
+	background-color:rgb(192,192,192);
+	color:rgb(0,0,0);
+	border-left:1px solid rgb(128,128,128);
+	border-right:1px solid rgb(128,128,128);
+	border-bottom:5px solid rgb(128,128,128);
+}
+QPushButton#ready_button:pressed{
+	background-color:rgb(192,192,192);
+	color:rgb(0,0,0);
+	border-left:1px solid rgb(128,128,128);
+	border-right:1px solid rgb(128,128,128);
+	border-top:5px solid rgb(128,128,128);
+}
+</string>
    </property>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>110</y>
+      <x>0</x>
+      <y>0</y>
       <width>250</width>
       <height>230</height>
      </rect>
@@ -86,8 +109,8 @@ background-color: rgb(123, 174, 106);</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>110</y>
+      <x>240</x>
+      <y>0</y>
       <width>250</width>
       <height>230</height>
      </rect>
@@ -108,8 +131,8 @@ background-color: rgb(123, 174, 106);</string>
    <widget class="QLabel" name="Student_ID_2">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>120</y>
+      <x>10</x>
+      <y>10</y>
       <width>221</width>
       <height>25</height>
      </rect>
@@ -132,8 +155,8 @@ border-bottom:2px solid rgba(46,82,101,200);</string>
    <widget class="QPushButton" name="Logout_Button">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>290</y>
+      <x>40</x>
+      <y>180</y>
       <width>161</width>
       <height>28</height>
      </rect>
@@ -153,8 +176,8 @@ border-bottom:2px solid rgba(46,82,101,200);</string>
    <widget class="QPushButton" name="ViewPoint_Button">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>180</y>
+      <x>20</x>
+      <y>70</y>
       <width>201</width>
       <height>81</height>
      </rect>
@@ -171,49 +194,11 @@ border-bottom:2px solid rgba(46,82,101,200);</string>
      <string>View Point</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="state">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>130</y>
-      <width>191</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Berlin Sans FB Demi</family>
-      <pointsize>15</pointsize>
-      <weight>75</weight>
-      <italic>false</italic>
-      <bold>true</bold>
-      <underline>false</underline>
-     </font>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(153, 184, 152);</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="lineWidth">
-     <number>3</number>
-    </property>
-    <property name="plainText">
-     <string>Ready</string>
-    </property>
-    <property name="tabStopWidth">
-     <number>0</number>
-    </property>
-   </widget>
    <widget class="QPlainTextEdit" name="plainTextEdit">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>200</y>
+      <x>260</x>
+      <y>90</y>
       <width>211</width>
       <height>111</height>
      </rect>
@@ -235,8 +220,28 @@ border-bottom:2px solid rgba(46,82,101,200);</string>
 You get the points </string>
     </property>
    </widget>
+   <widget class="QPushButton" name="ready_button">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>30</y>
+      <width>211</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Berlin Sans FB Demi</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Ready</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
