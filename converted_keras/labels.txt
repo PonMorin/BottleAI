@@ -1,0 +1,2 @@
+0 Buttle_Ready
+1 Bottle_NotReady
