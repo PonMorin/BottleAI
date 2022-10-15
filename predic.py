@@ -29,7 +29,3 @@ class PredicData:
         send_className = class_name.split(" ")
         # confidence_score = prediction[0][index]
         return send_className[1]
-        # print(prediction)
-
-        # print("Class: ", class_name)
-        # print("Confidence Score: ", confidence_score)

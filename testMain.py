@@ -15,3 +15,5 @@ class Main:
         openCam.takePicture()
 
     
+a = Main()
+a.getData()
