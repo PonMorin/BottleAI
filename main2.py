@@ -10,6 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from points2 import Ui_pointWindow
+from login2 import Ui_loginWindow
 
 class Ui_MainWindow(object):
     def openpoints(self):
@@ -17,6 +18,13 @@ class Ui_MainWindow(object):
         self.ui = Ui_pointWindow()
         self.ui.setupUi(self.window)
         self.window.show()
+    def openlogin(self):
+        from login2 import Ui_loginWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_loginWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(492, 233)
@@ -156,6 +164,8 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         self.ViewPoint_Button.clicked.connect(self.openpoints)
+        self.Logout_Button.clicked.connect(self.openlogin)
+        self.Logout_Button.clicked.connect(MainWindow.close)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

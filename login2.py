@@ -9,15 +9,17 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from main2 import Ui_MainWindow
+#from main2 import Ui_MainWindow
 
 class Ui_loginWindow(object):
 
     def openWindow(self):
+        from main2 import Ui_MainWindow
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.window)
         self.window.show()
+    
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(501, 232)
