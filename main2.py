@@ -189,7 +189,7 @@ class Ui_MainWindow(object):
         # readyToCap.takePicture()
         print("In progress....")
         # self.getLabel = getModel.sendData()
-        if "Bottle_Ready" == "Bottle_Ready":
+        if "Bottle_Ready" == "Bottle_Ready3":
             # print(self.getLabel)
             data_df = self.read_point()
             wd = openpyxl.load_workbook("studentData.xlsx")
@@ -202,7 +202,7 @@ class Ui_MainWindow(object):
             print(data_df)
         else:
             _translate = QtCore.QCoreApplication.translate
-            self.label.setText(_translate("MainWindow", "กรุณาแกะพลาสติกข้างๆออกด้วย !!!"))
+            self.label.setText(_translate("MainWindow", "กรุณาแกะพลาสติกข้างๆ\nออกด้วย !!!"))
             # print(self.getLabel)
             print("Error")
 
