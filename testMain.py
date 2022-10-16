@@ -19,3 +19,10 @@ a = Main()
 a.getData()
 # a.capture()
 
+def checkBottle(self):
+                readyToCap = TakePhoto()
+                getModel = PredicData()
+                readyToCap.takePicture()
+                print("In progress....")
+                self.getLabel = getModel.sendData()
+                print(self.getLabel)
