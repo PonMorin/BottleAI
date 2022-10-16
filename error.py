@@ -12,6 +12,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_errorwindow(object):
+
+    def openlogin(self):
+        from login2 import Ui_loginWindow
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_loginWindow(self.window)
+        self.ui.setupUi()
+        self.window.show()
+
     def setupUi(self, errorwindow):
         errorwindow.setObjectName("errorwindow")
         errorwindow.resize(500, 232)
@@ -78,6 +86,8 @@ class Ui_errorwindow(object):
 
         self.retranslateUi(errorwindow)
         QtCore.QMetaObject.connectSlotsByName(errorwindow)
+        #self.back_Button.clicked.connect(self.openlogin)
+        self.back_Button.clicked.connect(errorwindow.close)
 
     def retranslateUi(self, errorwindow):
         _translate = QtCore.QCoreApplication.translate
