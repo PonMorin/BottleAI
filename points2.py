@@ -12,8 +12,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_pointWindow(object):
-        def __init__(self,points) -> None:
-            self.points = points
+        def __init__(self) -> None:
+            pass
         def setupUi(self, MainWindow):
             MainWindow.setObjectName("MainWindow")
             MainWindow.resize(501, 235)

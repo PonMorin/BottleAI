@@ -15,13 +15,13 @@ from predic import PredicData
 from takePhoto import TakePhoto
 
 class Ui_MainWindow(object):
-    def __init__(self,student_id, points) -> None:
+    def __init__(self,student_id, getIndex) -> None:
         self.student = student_id
-        self.points = points
+        self.index = getIndex
         
     def openpoints(self):
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_pointWindow(points = self.points)
+        self.ui = Ui_pointWindow()
         self.ui.setupUi(self.window)
         self.window.show()
         
@@ -176,12 +176,16 @@ class Ui_MainWindow(object):
         self.ready_button.clicked.connect(self.checkBottle)
 
     def checkBottle(self):
-        #readyToCap = TakePhoto()
-        # getModel = PredicData()
-        #readyToCap.takePicture()
+        readyToCap = TakePhoto()
+        getModel = PredicData()
+        readyToCap.takePicture()
         print("In progress....")
-        # self.getLabel = getModel.sendData()
-        # print(self.getLabel)
+        self.getLabel = getModel.sendData()
+        if self.getLabel == "Bottle_Ready":
+            print(self.getLabel)
+            
+        else:
+            print("Error")
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
