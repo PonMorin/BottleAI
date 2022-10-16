@@ -9,10 +9,10 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from points2 import Ui_pointWindow
-from login2 import Ui_loginWindow
 from predic import PredicData
 from takePhoto import TakePhoto
+from points2 import Ui_pointWindow
+#from login2 import Ui_loginWindow
 
 class Ui_MainWindow(object):
     def __init__(self,student_id, getIndex) -> None:
@@ -24,14 +24,12 @@ class Ui_MainWindow(object):
         self.ui = Ui_pointWindow()
         self.ui.setupUi(self.window)
         self.window.show()
-        
     def openlogin(self):
         from login2 import Ui_loginWindow
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_loginWindow()
         self.ui.setupUi(self.window)
         self.window.show()
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(492, 233)
@@ -147,15 +145,6 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.ViewPoint_Button.setFont(font)
         self.ViewPoint_Button.setObjectName("ViewPoint_Button")
-        self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.plainTextEdit.setGeometry(QtCore.QRect(260, 90, 211, 111))
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setWeight(75)
-        self.plainTextEdit.setFont(font)
-        self.plainTextEdit.setFrameShape(QtWidgets.QFrame.Box)
-        self.plainTextEdit.setLineWidth(3)
-        self.plainTextEdit.setObjectName("plainTextEdit")
         self.ready_button = QtWidgets.QPushButton(self.centralwidget)
         self.ready_button.setGeometry(QtCore.QRect(260, 30, 211, 40))
         font = QtGui.QFont()
@@ -165,6 +154,17 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.ready_button.setFont(font)
         self.ready_button.setObjectName("ready_button")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(270, 100, 191, 101))
+        font = QtGui.QFont()
+        font.setFamily("Berlin Sans FB Demi")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
+        self.label.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.label.setFrameShape(QtWidgets.QFrame.Box)
+        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -190,12 +190,12 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.Student_ID_2.setText(_translate("MainWindow", self.student))
+        self.Student_ID_2.setText(_translate("MainWindow", "64140301021"))
         self.Logout_Button.setText(_translate("MainWindow", "L o g O u t"))
         self.ViewPoint_Button.setText(_translate("MainWindow", "View Point"))
-        self.plainTextEdit.setPlainText(_translate("MainWindow", "Congratulations !!!\n"
-"You get the points "))
         self.ready_button.setText(_translate("MainWindow", "Ready"))
+        self.label.setText(_translate("MainWindow", "Congratulations !!!\n"
+"You get the points "))
 
 
 if __name__ == "__main__":
