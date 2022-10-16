@@ -15,11 +15,16 @@ from predic import PredicData
 from takePhoto import TakePhoto
 
 class Ui_MainWindow(object):
+    def __init__(self,student_id, points) -> None:
+        self.student = student_id
+        self.points = points
+        
     def openpoints(self):
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_pointWindow()
+        self.ui = Ui_pointWindow(points = self.points)
         self.ui.setupUi(self.window)
         self.window.show()
+        
     def openlogin(self):
         from login2 import Ui_loginWindow
         self.window = QtWidgets.QMainWindow()
@@ -171,17 +176,17 @@ class Ui_MainWindow(object):
         self.ready_button.clicked.connect(self.checkBottle)
 
     def checkBottle(self):
-        readyToCap = TakePhoto()
-        getModel = PredicData()
-        readyToCap.takePicture()
+        #readyToCap = TakePhoto()
+        # getModel = PredicData()
+        #readyToCap.takePicture()
         print("In progress....")
-        self.getLabel = getModel.sendData()
-        print(self.getLabel)
+        # self.getLabel = getModel.sendData()
+        # print(self.getLabel)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.Student_ID_2.setText(_translate("MainWindow", "64140301021"))
+        self.Student_ID_2.setText(_translate("MainWindow", self.student))
         self.Logout_Button.setText(_translate("MainWindow", "L o g O u t"))
         self.ViewPoint_Button.setText(_translate("MainWindow", "View Point"))
         self.plainTextEdit.setPlainText(_translate("MainWindow", "Congratulations !!!\n"
