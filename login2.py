@@ -12,13 +12,20 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 #from main2 import Ui_MainWindow
 
 class Ui_loginWindow(object):
-
+    def __init__(self) -> None:
+        self.student_data = ["6410301020","6410301021","6410301026"]
+        self.password_data = ["1234","5678","1945"]
+        self.point = [0,0,0]
+        self.id = ''
+        self.student_point = 0
+        
     def openWindow(self):
         from main2 import Ui_MainWindow
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_MainWindow()
+        self.ui = Ui_MainWindow(student_id=self.id,points = self.student_point)
         self.ui.setupUi(self.window)
         self.window.show()
+        
     
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -102,8 +109,8 @@ class Ui_loginWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        self.Login_Button.clicked.connect(self.openWindow)
-        self.Login_Button.clicked.connect(MainWindow.close)
+        self.Login_Button.clicked.connect(self.check_pass)
+        # self.Login_Button.clicked.connect(MainWindow.close)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -112,6 +119,22 @@ class Ui_loginWindow(object):
         self.student_ID.setPlaceholderText(_translate("MainWindow", "Student ID"))
         self.student_Pass.setPlaceholderText(_translate("MainWindow", "Password"))
         self.Login_Button.setText(_translate("MainWindow", "L o g I n"))
+        
+    def check_pass(self):
+        x = self.student_ID.text()
+        Pass = self.student_Pass.text()
+        print(x)
+        print(Pass)
+        if x in self.student_data:
+                index = self.student_data.index(x)
+                print(index)
+                if self.password_data[index] == Pass:
+                        print("pass")
+                        self.id = x
+                        self.student_point = self.point[index]
+                        self.openWindow()
+                        MainWindow.close()
+                                
 import RES_01_rc
 
 
