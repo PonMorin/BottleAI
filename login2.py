@@ -14,11 +14,13 @@ import pandas as pd
 #from main2 import Ui_MainWindow
 
 class Ui_loginWindow(object):
-    def __init__(self) -> None:
+    def __init__(self,MainWindow) -> None:
         self.id = ''
         self.sendIndex = 0
+        self.main = MainWindow
 
     def openWindow(self):
+        self.main.close()
         from main2 import Ui_MainWindow
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow(student_id=self.id, getIndex= self.sendIndex)
@@ -26,10 +28,10 @@ class Ui_loginWindow(object):
         self.window.show()
         
     
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(501, 232)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+    def setupUi(self):
+        self.main.setObjectName("MainWindow")
+        self.main.resize(501, 232)
+        self.centralwidget = QtWidgets.QWidget(self.main)
         self.centralwidget.setStyleSheet("QPushButton#Login_Button{\n"
 "    \n"
 "    color: rgb(255, 255, 255);\n"
@@ -103,41 +105,46 @@ class Ui_loginWindow(object):
         font.setWeight(75)
         self.Login_Button.setFont(font)
         self.Login_Button.setObjectName("Login_Button")
-        MainWindow.setCentralWidget(self.centralwidget)
+        self.main.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi()
+        QtCore.QMetaObject.connectSlotsByName(self.main)
 
         self.Login_Button.clicked.connect(self.check_pass)
-        # self.Login_Button.clicked.connect(MainWindow.close)
+        # self.Login_Button.clicked.connect(self.main.close)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.main.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_4.setText(_translate("MainWindow", "Log In"))
         self.student_ID.setPlaceholderText(_translate("MainWindow", "Student ID"))
         self.student_Pass.setPlaceholderText(_translate("MainWindow", "Password"))
         self.Login_Button.setText(_translate("MainWindow", "L o g I n"))
+    
+    # def check_close(self):
         
+    
     def check_pass(self):
         excel_data_df = pd.read_excel('studentData.xlsx')
-        x = self.student_ID.text()
+        id = self.student_ID.text()
         Pass = self.student_Pass.text()
-        print(x)
+        print(id)
         print(Pass)
         i = 0
         while True:
-            if str(x) == str(excel_data_df['ID'][i]):
+            if str(id) == str(excel_data_df['ID'][i]):
                     if str(Pass) == str(excel_data_df['Pass'][i]):
                             print("pass")
-                            self.id = x
+                            self.id = id
                             self.sendIndex = i
+                            # MainWindow.close()
                             self.openWindow()
-                            MainWindow.close()
+                            
                             break
             else:
-                if x == "" or Pass == "":
+                if id == "" or Pass == "":
                     print("Error")
+                    
                     break
                 else:
                     i += 1
@@ -149,7 +156,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_loginWindow()
-    ui.setupUi(MainWindow)
+    ui = Ui_loginWindow(MainWindow)
+    ui.setupUi()
     MainWindow.show()
     sys.exit(app.exec_())

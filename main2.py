@@ -12,24 +12,32 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from predic import PredicData
 from takePhoto import TakePhoto
 from points2 import Ui_pointWindow
+import pandas as pd
+import openpyxl
 #from login2 import Ui_loginWindow
 
 class Ui_MainWindow(object):
     def __init__(self,student_id, getIndex) -> None:
         self.student = student_id
         self.index = getIndex
+        self.point_set = 0
         
     def openpoints(self):
+        self.point_set = self.read_point()
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_pointWindow()
+        self.ui = Ui_pointWindow(points = self.point_set )
         self.ui.setupUi(self.window)
         self.window.show()
+        
     def openlogin(self):
         from login2 import Ui_loginWindow
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_loginWindow()
-        self.ui.setupUi(self.window)
+        self.ui = Ui_loginWindow(self.window)
+        self.ui.setupUi()
         self.window.show()
+        
+        
+        
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(492, 233)
@@ -176,21 +184,30 @@ class Ui_MainWindow(object):
         self.ready_button.clicked.connect(self.checkBottle)
 
     def checkBottle(self):
-        readyToCap = TakePhoto()
-        getModel = PredicData()
-        readyToCap.takePicture()
+        # readyToCap = TakePhoto()
+        # getModel = PredicData()
+        # readyToCap.takePicture()
         print("In progress....")
-        self.getLabel = getModel.sendData()
-        if self.getLabel == "Bottle_Ready":
-            print(self.getLabel)
-            
+        # self.getLabel = getModel.sendData()
+        if "Bottle_Ready" == "Bottle_Ready":
+            # print(self.getLabel)
+            data_df = self.read_point()
+            wd = openpyxl.load_workbook("studentData.xlsx")
+            ws = wd['Sheet1']
+            ws.cell(row=self.index+2,column=3).value = int(data_df)+3
+            wd.save("studentData.xlsx")
+
+            print(data_df)
         else:
             print("Error")
-
+    def read_point(self):
+        excel_data_df = pd.read_excel('studentData.xlsx')
+        x = excel_data_df.loc[self.index, ['Point']]
+        return x
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.Student_ID_2.setText(_translate("MainWindow", "64140301021"))
+        self.Student_ID_2.setText(_translate("MainWindow", self.student))
         self.Logout_Button.setText(_translate("MainWindow", "L o g O u t"))
         self.ViewPoint_Button.setText(_translate("MainWindow", "View Point"))
         self.ready_button.setText(_translate("MainWindow", "Ready"))
