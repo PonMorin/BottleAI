@@ -196,9 +196,13 @@ class Ui_MainWindow(object):
             ws = wd['Sheet1']
             ws.cell(row=self.index+2,column=3).value = int(data_df)+3
             wd.save("studentData.xlsx")
-
+            _translate = QtCore.QCoreApplication.translate
+            self.label.setText(_translate("MainWindow", "Congratulations !!!\n"
+"You get the points "))
             print(data_df)
         else:
+            _translate = QtCore.QCoreApplication.translate
+            self.label.setText(_translate("MainWindow", "กรุณาแกะพลาสติกข้างๆออกด้วย !!!"))
             # print(self.getLabel)
             print("Error")
 
@@ -213,9 +217,7 @@ class Ui_MainWindow(object):
         self.Logout_Button.setText(_translate("MainWindow", "L o g O u t"))
         self.ViewPoint_Button.setText(_translate("MainWindow", "View Point"))
         self.ready_button.setText(_translate("MainWindow", "Ready"))
-        self.label.setText(_translate("MainWindow", "Congratulations !!!\n"
-"You get the points "))
-
+        
 
 if __name__ == "__main__":
     import sys
