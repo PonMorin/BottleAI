@@ -13,9 +13,11 @@ class Main:
     def capture(self):
         openCam = TakePhoto()
         openCam.takePicture()
+    
 
     
 a = Main()
+a.capture()
 a.getData()
-# a.capture()
+
 

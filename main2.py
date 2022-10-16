@@ -199,7 +199,9 @@ class Ui_MainWindow(object):
 
             print(data_df)
         else:
+            # print(self.getLabel)
             print("Error")
+
     def read_point(self):
         excel_data_df = pd.read_excel('studentData.xlsx')
         x = excel_data_df.loc[self.index, ['Point']]
