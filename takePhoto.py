@@ -8,9 +8,9 @@ class TakePhoto:
         cam = VideoCapture(cam_port)
         result, image = cam.read()
         if result:
-            imshow("Bottle", image)
+            # imshow("Bottle", image)
             imwrite("Bottle.png", image)
-            waitKey(0)
-            destroyWindow("Bottle")
+            # waitKey(0)
+            # destroyWindow("Bottle")
         else:
             print("No image detected. Please! try again")

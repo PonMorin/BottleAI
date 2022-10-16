@@ -22,7 +22,7 @@ class PredicData:
         normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
         
         data[0] = normalized_image_array
-        
+
         prediction = self.model.predict(data)
         index = np.argmax(prediction)
         class_name = class_names[index]

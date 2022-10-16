@@ -11,6 +11,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from points2 import Ui_pointWindow
 from login2 import Ui_loginWindow
+from predic import PredicData
+from takePhoto import TakePhoto
 
 class Ui_MainWindow(object):
     def openpoints(self):
@@ -166,6 +168,15 @@ class Ui_MainWindow(object):
         self.ViewPoint_Button.clicked.connect(self.openpoints)
         self.Logout_Button.clicked.connect(self.openlogin)
         self.Logout_Button.clicked.connect(MainWindow.close)
+        self.ready_button.clicked.connect(self.checkBottle)
+
+    def checkBottle(self):
+        readyToCap = TakePhoto()
+        getModel = PredicData()
+        readyToCap.takePicture()
+        print("In progress....")
+        self.getLabel = getModel.sendData()
+        print(self.getLabel)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

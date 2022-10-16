@@ -7,8 +7,8 @@ class Main:
     
     def getData(self):
         getModel = PredicData()
-        self.getName = getModel.sendData()
-        print(self.getName)
+        getModel.sendData()
+        
     
     def capture(self):
         openCam = TakePhoto()
@@ -17,3 +17,5 @@ class Main:
     
 a = Main()
 a.getData()
+# a.capture()
+
