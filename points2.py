@@ -12,6 +12,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_pointWindow(object):
+        def __init__(self,points) -> None:
+            self.points = points
         def setupUi(self, MainWindow):
             MainWindow.setObjectName("MainWindow")
             MainWindow.resize(501, 235)
@@ -56,10 +58,11 @@ class Ui_pointWindow(object):
             QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         def retranslateUi(self, MainWindow):
+            
             _translate = QtCore.QCoreApplication.translate
             MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
             self.label_4.setText(_translate("MainWindow", "You Points "))
-            self.you_points.setPlainText(_translate("MainWindow", "123"))
+            self.you_points.setPlainText(_translate("MainWindow", str(self.points)))
 
 
 if __name__ == "__main__":
