@@ -118,7 +118,6 @@ class Ui_loginWindow(object):
         QtCore.QMetaObject.connectSlotsByName(self.main)
 
         self.Login_Button.clicked.connect(self.check_pass)
-        # self.Login_Button.clicked.connect(self.main.close)
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
@@ -127,8 +126,6 @@ class Ui_loginWindow(object):
         self.student_ID.setPlaceholderText(_translate("MainWindow", "Student ID"))
         self.student_Pass.setPlaceholderText(_translate("MainWindow", "Password"))
         self.Login_Button.setText(_translate("MainWindow", "L o g I n"))
-    
-    # def check_close(self):
         
     
     def check_pass(self):

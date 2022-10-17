@@ -1,1 +1,0 @@
-def check_close(self):

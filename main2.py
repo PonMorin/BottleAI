@@ -14,7 +14,6 @@ from takePhoto import TakePhoto
 from points2 import Ui_pointWindow
 import pandas as pd
 import openpyxl
-#from login2 import Ui_loginWindow
 
 class Ui_MainWindow(object):
     def __init__(self,student_id, getIndex) -> None:
@@ -208,8 +207,9 @@ class Ui_MainWindow(object):
 
     def read_point(self):
         excel_data_df = pd.read_excel('studentData.xlsx')
-        x = excel_data_df.loc[self.index, ['Point']]
-        return x
+        data_point = excel_data_df.loc[self.index, ['Point']]
+        return data_point
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))

@@ -86,7 +86,6 @@ class Ui_errorwindow(object):
 
         self.retranslateUi(errorwindow)
         QtCore.QMetaObject.connectSlotsByName(errorwindow)
-        #self.back_Button.clicked.connect(self.openlogin)
         self.back_Button.clicked.connect(errorwindow.close)
 
     def retranslateUi(self, errorwindow):

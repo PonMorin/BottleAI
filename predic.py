@@ -1,5 +1,4 @@
 import tensorflow.keras
-
 from PIL import Image, ImageOps
 import numpy as np
 
@@ -28,5 +27,4 @@ class PredicData:
         index = np.argmax(prediction)
         class_name = class_names[index]
         send_className = class_name.split(" ")
-        # confidence_score = prediction[0][index]
         return send_className[1]
