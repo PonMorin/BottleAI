@@ -139,7 +139,8 @@ class Ui_loginWindow(object):
         print(Pass)
         i = 0
         while True:
-            if str(id) == str(excel_data_df['ID'][i]):
+            if id != "" and Pass != "":
+                if str(id) == str(excel_data_df['ID'][i]):
                     if str(Pass) == str(excel_data_df['Pass'][i]):
                             print("pass")
                             self.id = id
@@ -147,13 +148,14 @@ class Ui_loginWindow(object):
                             # MainWindow.close()
                             self.openWindow()
                             break
+                else:
+                    i += 1
             else:
                 if id == "" or Pass == "":
                     print("Error")
                     self.openErrorWindow()
                     break
-                else:
-                    i += 1
+                    
                                 
 import RES_01_rc
 
