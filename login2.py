@@ -152,10 +152,6 @@ class Ui_loginWindow(object):
                     print("Error")
                     self.openErrorWindow()
                     break
-                elif str(id) != str(excel_data_df['ID'][i]) or str(Pass) == str(excel_data_df['Pass'][i]):
-                    print("Error")
-                    self.openErrorWindow()
-                    break
                 else:
                     i += 1
                                 
